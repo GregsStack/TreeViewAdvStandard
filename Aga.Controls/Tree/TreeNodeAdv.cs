@@ -130,7 +130,19 @@ namespace Aga.Controls.Tree
 		}
 
 
-		public bool IsEnabled { get; set; } = true;
+		private bool _isEnabled;
+		public bool IsEnabled
+		{
+			get { return this._isEnabled || (_tag is Node && (_tag as Node).IsEnabled); }
+			set
+			{
+				if (this._isEnabled != value)
+				{
+					this._isEnabled = value;
+					this._tree.SmartFullUpdate();
+				}
+			}
+		}
 
 
 		private bool _isSelected;
@@ -381,9 +393,10 @@ namespace Aga.Controls.Tree
 			_children = new ReadOnlyCollection<TreeNodeAdv>(_nodes);
 			_tag = tag;
 
+			_isEnabled = true;
 			if (tag is Node node)
 			{
-				IsEnabled = node.IsEnabled;
+				_isEnabled = node.IsEnabled;
 			}
 		}
 

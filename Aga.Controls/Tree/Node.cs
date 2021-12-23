@@ -152,7 +152,19 @@ namespace Aga.Controls.Tree
 			}
 		}
 
-		public bool IsEnabled { set; get; } = true;
+		private bool _isEnabled;
+		public bool IsEnabled
+		{
+			get { return _isEnabled; }
+			set
+			{
+				if (_isEnabled != value)
+				{
+					_isEnabled = value;
+					NotifyModel();
+				}
+			}
+		}
 
 		private bool _hidden;
 		public bool IsHidden
@@ -235,6 +247,7 @@ namespace Aga.Controls.Tree
 
 		public Node(string text)
 		{
+			_isEnabled = true;
 			_text = text;
 			_nodes = new NodeCollection(this);
 		}

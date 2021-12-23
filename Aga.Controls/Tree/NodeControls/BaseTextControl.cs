@@ -219,7 +219,9 @@ namespace Aga.Controls.Tree.NodeControls
 			return br;
 		}
 
-		private void CreateBrushes(TreeNodeAdv node, DrawContext context, string text, out Brush backgroundBrush, out Color textColor, out Font font, ref string label)
+		private void CreateBrushes(
+			TreeNodeAdv node, DrawContext context, string text, out Brush backgroundBrush, 
+			out Color textColor, out Font font, ref string label)
 		{
 			textColor = SystemColors.ControlText;
 			backgroundBrush = null;
