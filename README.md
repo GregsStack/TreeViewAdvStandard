@@ -1,7 +1,11 @@
-treeviewadv
+TreeViewAdvStandard
 ===========
 
 Forked from http://sourceforge.net/projects/treeviewadv/
+
+# Work in Progress
+
+The goal is to make this library available with dotnetstandard2.0
 
 # Local Changes
 
